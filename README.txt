@@ -28,7 +28,9 @@ Introduction
 
 MP3Gainer recursively applies ReplayGain to a MP3 music collection using 
 'mp3gain'. ReplayGain can be applied in 'track' or 'album' mode. If 
-ReplayGain has previously been applied it can also be undone.
+ReplayGain has previously been applied it can also be undone. It is 
+important to understand that MP3Gainer 'album' really is per album, which 
+is what you want. Trust me! :-)
 
 The script can be run against a music collection directory structure of
 any depth, overcoming issues with similar scripts. You can of course just
