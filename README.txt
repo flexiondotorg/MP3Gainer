@@ -26,20 +26,20 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 Introduction
 
-MP3Gainer recursively applies ReplayGain to a MP3 music collection using 
-'mp3gain'. ReplayGain can be applied in 'track' or 'album' mode. If 
-ReplayGain has previously been applied it can also be undone. It is 
-important to understand that MP3Gainer 'album' really is per album, which 
+MP3Gainer recursively applies ReplayGain to a MP3 music collection using
+'mp3gain'. ReplayGain can be applied in 'track' or 'album' mode. If
+ReplayGain has previously been applied it can also be undone. It is
+important to understand that MP3Gainer 'album' really is per album, which
 is what you want. Trust me! :-)
 
 The script can be run against a music collection directory structure of
 any depth, overcoming issues with similar scripts. You can of course just
 process a single directory at a time as well.
 
-The first time you apply ReplayGain it takes a while to process each MP3 
+The first time you apply ReplayGain it takes a while to process each MP3
 file. However, once a MP3 file has been processed subsequent runs of
-'mp3gain' are much, much quicker. Therefore you can reprocess entire 
-music collections many times and only the new MP3s will have Replay Gain 
+'mp3gain' are much, much quicker. Therefore you can reprocess entire
+music collections many times and only the new MP3s will have Replay Gain
 applied.
 
 Usage
@@ -57,12 +57,12 @@ You must supply one of the following modes of operation
 Requirements
 
  - bash, cat, echo, ls, mp3gain, which.
-   
+
 Known Limitations
 
  - Uses default settings for 'mp3gain'.
  - Only processes MP3 files.
- 
+
 Source Code
 
 You can grab the source from Launchpad. Contributions are welcome :-)
@@ -71,7 +71,11 @@ You can grab the source from Launchpad. Contributions are welcome :-)
 
 References
 
- - http://wiki.flexion.org/CDRipping.html
+ - http://ubuntuforums.org/showthread.php?t=1336014
+ - http://old-wiki.flexion.org/CDRipping.html
+
+v1.1 2011, 25th October.
+ - Added a reference to this document.
 
 v1.0 2009, 14th August.
  - Initial release

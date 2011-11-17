@@ -27,31 +27,31 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 
 IFS=$'\n'
-VER="1.0"
+VER="1.1"
 
 echo "MP3Gainer v${VER} - Applies ReplayGain to a MP3 music collection."
-echo "Copyright (c) 2009 Flexion.Org, http://flexion.org. MIT License" 
+echo "Copyright (c) 2009 Flexion.Org, http://flexion.org. MIT License"
 echo
 
 replaygain() {
 	MP3S=`ls -1 *.mp3`
 	echo -n "Processing MP3s in `pwd` : "
-        if [ ${MODE_TRACK} -eq 1 ]; then
-                echo "Track mode"
-		for MP3 in ${MP3S}
-		do
-			mp3gain -r -k "${MP3}"
-		done
-        elif [ ${MODE_ALBUM} -eq 1 ]; then
-                echo "Album mode"
-		mp3gain -r -k -a ${MP3S}
-        elif [ ${MODE_UNDO} -eq 1 ]; then
-                echo "Undo mode"
-                for MP3 in ${MP3S}
-                do
-                        mp3gain -u "${MP3}"
-                done
-        fi
+    if [ ${MODE_TRACK} -eq 1 ]; then
+        echo "Track mode"
+	    for MP3 in ${MP3S}
+	    do
+		    mp3gain -r -k "${MP3}"
+	    done
+    elif [ ${MODE_ALBUM} -eq 1 ]; then
+        echo "Album mode"
+	    mp3gain -r -k -a ${MP3S}
+    elif [ ${MODE_UNDO} -eq 1 ]; then
+        echo "Undo mode"
+        for MP3 in ${MP3S}
+        do
+            mp3gain -u "${MP3}"
+        done
+    fi
 }
 
 recurse() {
@@ -129,7 +129,7 @@ MODE_ALBUM=0
 MODE_UNDO=0
 
 # Check for optional parameters
-while [ $# -gt 0 ]; 
+while [ $# -gt 0 ];
 do
 	case "${1}" in
 		-t|-T|--track|-track)
