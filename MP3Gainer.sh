@@ -3,7 +3,7 @@
 # License
 #
 # Applies ReplayGain to a MP3 music collection
-# Copyright (c) 2009 Flexion.Org, http://flexion.org/
+# Copyright (c) 2013 Flexion.Org, http://flexion.org/
 #
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation
@@ -27,30 +27,23 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 
 IFS=$'\n'
-VER="1.1"
+VER="1.2"
 
 echo "MP3Gainer v${VER} - Applies ReplayGain to a MP3 music collection."
-echo "Copyright (c) 2009 Flexion.Org, http://flexion.org. MIT License"
+echo "Copyright (c) 2013 Flexion.Org, http://flexion.org. MIT License"
 echo
 
 replaygain() {
-	MP3S=`ls -1 *.mp3`
-	echo -n "Processing MP3s in `pwd` : "
+    echo -n "Processing MP3s in `pwd` : "
     if [ ${MODE_TRACK} -eq 1 ]; then
         echo "Track mode"
-	    for MP3 in ${MP3S}
-	    do
-		    mp3gain -r -k "${MP3}"
-	    done
+        mp3gain -r -k -s i *.mp3
     elif [ ${MODE_ALBUM} -eq 1 ]; then
         echo "Album mode"
-	    mp3gain -r -k -a ${MP3S}
+        mp3gain -r -k -a -s i *.mp3
     elif [ ${MODE_UNDO} -eq 1 ]; then
         echo "Undo mode"
-        for MP3 in ${MP3S}
-        do
-            mp3gain -u "${MP3}"
-        done
+        mp3gain -u *.mp3
     fi
 }
 
@@ -60,7 +53,7 @@ recurse() {
     # Are we in a directory that contains MP3s?
     MP3S=`ls -1 *.mp3 2>/dev/null`
     if [ "$?" = "0" ]; then
-	replaygain
+        replaygain
     fi
 
     for dir in *
@@ -111,7 +104,7 @@ done
 # Get the first parameter passed in and validate it.
 if [ $# -ne 2 ]; then
     echo "ERROR! ${0} requires a music directory and mode of operation as input"
-	usage
+    usage
 elif [ "${1}" == "-h" ] || [ "${1}" == "--h" ] || [ "${1}" == "-help" ] || [ "${1}" == "--help" ] || [ "${1}" == "-?" ]; then
     usage
 else
@@ -131,22 +124,22 @@ MODE_UNDO=0
 # Check for optional parameters
 while [ $# -gt 0 ];
 do
-	case "${1}" in
-		-t|-T|--track|-track)
-			MODE_TRACK=1
-            		shift;;
-        	-a|-A|--album|-album)
-	        	MODE_ALBUM=1
-	        	shift;;
-        	-u|-U|--undo|-undo)
-	        	MODE_UNDO=1
-	        	shift;;
-	        -h|--h|-help|--help|-?)
-            		usage;;
-       		*)
-	            echo "ERROR! \"${1}\" is not s supported parameter."
-        	    usage;;
-	esac
+    case "${1}" in
+        -t|-T|--track|-track)
+            MODE_TRACK=1
+            shift;;
+        -a|-A|--album|-album)
+            MODE_ALBUM=1
+            shift;;
+        -u|-U|--undo|-undo)
+            MODE_UNDO=1
+            shift;;
+        -h|--h|-help|--help|-?)
+            usage;;
+        *)
+            echo "ERROR! \"${1}\" is not s supported parameter."
+            usage;;
+    esac
 done
 
 recurse "${MUSIC_DIR}"

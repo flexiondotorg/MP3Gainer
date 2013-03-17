@@ -1,7 +1,7 @@
 License
 
 Applies ReplayGain to a MP3 music collection
-Copyright (c) 2009 Flexion.Org, http://flexion.org/
+Copyright (c) 2013 Flexion.Org, http://flexion.org/
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -67,12 +67,15 @@ Source Code
 
 You can grab the source from Launchpad. Contributions are welcome :-)
 
- - https://code.launchpad.net/~flexiondotorg
+ - https://github.com/flexiondotorg/MP3Gainer
 
 References
 
  - http://ubuntuforums.org/showthread.php?t=1336014
- - http://old-wiki.flexion.org/CDRipping.html
+
+v1.2 2013, 17th March.
+ - Use ID3v2 tags instead of APE.
+ - Minor code clean up.
 
 v1.1 2011, 25th October.
  - Added a reference to this document.
