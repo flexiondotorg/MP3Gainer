@@ -73,6 +73,9 @@ References
 
  - http://ubuntuforums.org/showthread.php?t=1336014
 
+v121 2013, 6th October
+ - Corrected switches for album mode.
+
 v1.2 2013, 17th March.
  - Use ID3v2 tags instead of APE.
  - Minor code clean up.

@@ -27,7 +27,7 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 
 IFS=$'\n'
-VER="1.2"
+VER="1.21"
 
 echo "MP3Gainer v${VER} - Applies ReplayGain to a MP3 music collection."
 echo "Copyright (c) 2013 Flexion.Org, http://flexion.org. MIT License"
@@ -40,7 +40,7 @@ replaygain() {
         mp3gain -r -k -s i *.mp3
     elif [ ${MODE_ALBUM} -eq 1 ]; then
         echo "Album mode"
-        mp3gain -r -k -a -s i *.mp3
+        mp3gain -a -k -s i *.mp3
     elif [ ${MODE_UNDO} -eq 1 ]; then
         echo "Undo mode"
         mp3gain -u *.mp3
